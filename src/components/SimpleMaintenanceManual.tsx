@@ -52,7 +52,7 @@ const SimpleMaintenanceManual: React.FC<SimpleMaintenanceManualProps> = ({
         id: 'battery',
         title: 'Battery System',
         icon: Zap,
-        color: 'var(--cyber-warning)',
+        color: 'var(--industrial-warning)',
         procedures: [
           {
             id: 'battery-check',
@@ -77,7 +77,7 @@ const SimpleMaintenanceManual: React.FC<SimpleMaintenanceManualProps> = ({
         id: 'motor',
         title: 'Motor & Drive System',
         icon: Settings,
-        color: 'var(--cyber-primary)',
+        color: 'var(--industrial-primary)',
         procedures: [
           {
             id: 'motor-check',
@@ -102,7 +102,7 @@ const SimpleMaintenanceManual: React.FC<SimpleMaintenanceManualProps> = ({
         id: 'suspension',
         title: 'Suspension & Brakes',
         icon: Wrench,
-        color: 'var(--cyber-secondary)',
+        color: 'var(--industrial-secondary)',
         procedures: [
           {
             id: 'brake-check',
@@ -149,26 +149,26 @@ const SimpleMaintenanceManual: React.FC<SimpleMaintenanceManualProps> = ({
   const getDifficultyColor = (difficulty: DifficultyLevel): string => {
     switch (difficulty) {
       case 'Easy':
-        return 'var(--cyber-accent)';
+        return 'var(--industrial-success)';
       case 'Intermediate':
-        return 'var(--cyber-warning)';
+        return 'var(--industrial-warning)';
       case 'Advanced':
-        return 'var(--cyber-danger)';
+        return 'var(--industrial-danger)';
       default:
-        return 'var(--cyber-text-dim)';
+        return 'var(--industrial-text-muted)';
     }
   };
 
   const getStatusColor = (status: ProcedureStatus): string => {
     switch (status) {
       case 'completed':
-        return 'var(--cyber-accent)';
+        return 'var(--industrial-success)';
       case 'in-progress':
-        return 'var(--cyber-warning)';
+        return 'var(--industrial-warning)';
       case 'pending':
-        return 'var(--cyber-text-dim)';
+        return 'var(--industrial-text-muted)';
       default:
-        return 'var(--cyber-text-dim)';
+        return 'var(--industrial-text-muted)';
     }
   };
 
