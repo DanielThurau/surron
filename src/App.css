@@ -156,7 +156,7 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -164,6 +164,7 @@ body {
   text-decoration: none;
   border-radius: 4px;
   box-shadow: 0 2px 4px var(--industrial-shadow);
+  min-width: fit-content;
 }
 
 .cyber-button::before {
@@ -596,6 +597,64 @@ body {
   background: var(--industrial-bg);
 }
 
+.viewer-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  border-bottom: 1px solid var(--industrial-border);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: linear-gradient(
+    135deg,
+    var(--industrial-bg-secondary),
+    var(--industrial-bg-tertiary)
+  );
+  box-shadow: 0 2px 8px var(--industrial-shadow);
+}
+
+.main-header-content {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-title-section {
+  text-align: left;
+}
+
+.viewer-subtitle {
+  color: var(--industrial-text-secondary);
+  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.header-controls-section {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-controls-section .filter-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main-header-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .viewer-header {
   display: flex;
   justify-content: space-between;
@@ -614,7 +673,7 @@ body {
   align-items: center;
   gap: 20px;
   flex: 1;
-  min-width: 200px;
+  min-width: 250px;
 }
 
 .header-left h2 {
@@ -824,7 +883,8 @@ body {
   }
 
   .manual-header,
-  .viewer-header {
+  .viewer-header,
+  .viewer-main-header {
     flex-direction: column;
     align-items: stretch;
     gap: 15px;
@@ -833,14 +893,41 @@ body {
 
   .header-left,
   .header-center,
-  .header-right {
+  .header-right,
+  .main-header-content,
+  .main-header-actions {
     flex: none;
     min-width: auto;
   }
 
   .header-actions,
-  .filter-controls {
+  .filter-controls,
+  .main-header-actions {
     justify-content: center;
+  }
+
+  .main-header-content {
+    text-align: center;
+    margin-bottom: 15px;
+    gap: 20px;
+  }
+
+  .header-title-section {
+    text-align: center;
+  }
+
+  .header-controls-section {
+    justify-content: center;
+  }
+
+  .header-controls-section .filter-controls {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .header-controls-section .filter-controls .cyber-button {
+    min-width: fit-content;
+    flex-shrink: 0;
   }
 
   .sections-grid {
@@ -892,9 +979,14 @@ body {
     flex-direction: column;
   }
 
-  .cyber-button {
+  .procedure-actions .cyber-button {
     width: 100%;
     justify-content: center;
+  }
+
+  .header-left .cyber-button {
+    min-width: fit-content;
+    flex-shrink: 0;
   }
 }
 

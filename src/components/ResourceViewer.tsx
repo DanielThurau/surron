@@ -224,44 +224,49 @@ const ResourceViewer: React.FC<ResourceViewerProps> = ({ onNavigateHome }) => {
 
   return (
     <div className={`resource-viewer ${isFullscreen ? 'fullscreen' : ''}`}>
-      {/* Header */}
-      <div className="viewer-header">
-        <div className="header-left">
-          <button className="cyber-button" onClick={onNavigateHome}>
-            <Home size={16} /> Back to Manual
-          </button>
-          <h2 className="neon-text">Resource Viewer</h2>
-        </div>
+      {/* Main Header */}
+      <div className="viewer-main-header">
+        <div className="main-header-content">
+          <div className="header-title-section">
+            <h1 className="glitch neon-text" data-text="RESOURCE VIEWER">
+              RESOURCE VIEWER
+            </h1>
+            <p className="viewer-subtitle">SURRON LIGHT BEE TECHNICAL RESOURCES v2.0</p>
+          </div>
 
-        <div className="header-center">
-          <div className="filter-controls">
-            <button
-              className={`cyber-button ${filter === 'all' ? 'secondary' : ''}`}
-              onClick={() => handleFilterChange('all')}
-            >
-              All ({resources.length})
-            </button>
-            <button
-              className={`cyber-button ${filter === 'images' ? 'secondary' : ''}`}
-              onClick={() => handleFilterChange('images')}
-            >
-              <ImageIcon size={16} /> Images ({imageResources.length})
-            </button>
-            <button
-              className={`cyber-button ${filter === 'pdfs' ? 'secondary' : ''}`}
-              onClick={() => handleFilterChange('pdfs')}
-            >
-              <FileText size={16} /> PDFs ({pdfResources.length})
-            </button>
+          <div className="header-controls-section">
+            <div className="filter-controls">
+              <button
+                className={`cyber-button ${filter === 'all' ? 'secondary' : ''}`}
+                onClick={() => handleFilterChange('all')}
+              >
+                All ({resources.length})
+              </button>
+              <button
+                className={`cyber-button ${filter === 'images' ? 'secondary' : ''}`}
+                onClick={() => handleFilterChange('images')}
+              >
+                <ImageIcon size={16} /> Images ({imageResources.length})
+              </button>
+              <button
+                className={`cyber-button ${filter === 'pdfs' ? 'secondary' : ''}`}
+                onClick={() => handleFilterChange('pdfs')}
+              >
+                <FileText size={16} /> PDFs ({pdfResources.length})
+              </button>
+              <button
+                className={`cyber-button ${viewMode === 'grid' ? 'secondary' : ''}`}
+                onClick={handleViewModeToggle}
+              >
+                <Grid size={16} /> {viewMode === 'grid' ? 'Single' : 'Grid'} View
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="header-right">
-          <button
-            className={`cyber-button ${viewMode === 'grid' ? 'secondary' : ''}`}
-            onClick={handleViewModeToggle}
-          >
-            <Grid size={16} /> {viewMode === 'grid' ? 'Single' : 'Grid'} View
+        <div className="main-header-actions">
+          <button className="cyber-button" onClick={onNavigateHome}>
+            <Home size={16} /> Back to Manual
           </button>
         </div>
       </div>
