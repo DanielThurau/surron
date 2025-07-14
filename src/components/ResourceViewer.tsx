@@ -23,13 +23,13 @@ interface Resource {
 }
 
 interface ResourceViewerProps {
-  onNavigateHome: () => void;
+  onNavigateToLinks: () => void;
 }
 
 type ViewMode = 'single' | 'grid';
 type FilterType = 'all' | 'images' | 'pdfs';
 
-const ResourceViewer: React.FC<ResourceViewerProps> = ({ onNavigateHome }) => {
+const ResourceViewer: React.FC<ResourceViewerProps> = ({ onNavigateToLinks }) => {
   const [resources, setResources] = useState<Resource[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [viewMode, setViewMode] = useState<ViewMode>('single');
@@ -281,8 +281,8 @@ const ResourceViewer: React.FC<ResourceViewerProps> = ({ onNavigateHome }) => {
         </div>
 
         <div className="main-header-actions">
-          <button className="cyber-button" onClick={onNavigateHome}>
-            <Home size={16} /> Back to Manual
+          <button className="cyber-button" onClick={onNavigateToLinks}>
+            <Home size={16} /> Important Links
           </button>
         </div>
       </div>

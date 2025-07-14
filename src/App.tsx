@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import SimpleMaintenanceManual from './components/SimpleMaintenanceManual';
 import ResourceViewer from './components/ResourceViewer';
+import WebsiteLinks from './components/WebsiteLinks';
 import './App.css';
 
-type ViewType = 'manual' | 'resources';
+type ViewType = 'resources' | 'links';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewType>('manual');
+  const [currentView, setCurrentView] = useState<ViewType>('resources');
+
+  const handleNavigateToLinks = (): void => {
+    setCurrentView('links');
+  };
 
   const handleNavigateToResources = (): void => {
     setCurrentView('resources');
-  };
-
-  const handleNavigateHome = (): void => {
-    setCurrentView('manual');
   };
 
   return (
@@ -23,10 +23,10 @@ const App: React.FC = () => {
 
       {/* Main content */}
       <div className="main-content fade-in">
-        {currentView === 'manual' ? (
-          <SimpleMaintenanceManual onNavigateToResources={handleNavigateToResources} />
+        {currentView === 'resources' ? (
+          <ResourceViewer onNavigateToLinks={handleNavigateToLinks} />
         ) : (
-          <ResourceViewer onNavigateHome={handleNavigateHome} />
+          <WebsiteLinks onNavigateToResources={handleNavigateToResources} />
         )}
       </div>
     </div>

@@ -1,6 +1,6 @@
-# Surron Light Bee - Interactive Maintenance Manual
+# Surron Light Bee - Technical Resources Hub
 
-A cyberpunk-themed, interactive maintenance manual for the Surron Light Bee electric bike. Built with React, Vite, and Fabric.js for dynamic image annotations and editable maintenance procedures.
+A cyberpunk-themed, centralized resource viewer for the Surron Light Bee electric bike. Built with React and Vite, featuring an organized collection of technical diagrams, service manuals, and important external links.
 
 ## Features
 
@@ -12,30 +12,30 @@ A cyberpunk-themed, interactive maintenance manual for the Surron Light Bee elec
 - Terminal-style interface components
 - Neon glow effects and hover animations
 
-### 🔧 Interactive Maintenance System
+### 📚 Resource Management
 
-- **Editable Procedures**: Add, edit, and delete maintenance procedures
-- **Interactive Image Annotations**: Upload images and add annotations with drawing tools
-- **Progress Tracking**: Mark procedures as completed, in-progress, or pending
-- **Difficulty Levels**: Easy, Intermediate, and Advanced categorization
-- **Time Estimates**: Track estimated completion time for each procedure
-- **Tool Lists**: Specify required tools for each procedure
-- **Warnings & Safety**: Add safety warnings and notes
+- **Technical Diagrams**: High-quality images of bike components and assemblies
+- **Service Manuals**: PDF documents for detailed maintenance procedures
+- **Filtering System**: Filter by images, PDFs, or view all resources
+- **Grid & Single View**: Toggle between grid overview and detailed single view
+- **Zoom & Rotation**: Interactive controls for detailed examination
+- **Download Support**: Direct download of any resource
 
-### 🖼️ Advanced Image Annotation Features
+### 🔗 External Links Hub
 
-- **Fabric.js Integration**: Powerful canvas-based image editing
-- **Drawing Tools**: Freehand drawing, shapes (rectangles, circles), and text annotations
-- **Zoom Controls**: Zoom in/out for detailed work
-- **Drag & Drop**: Easy image upload via drag and drop
-- **Annotation Tracking**: Real-time tracking of all annotations with coordinates
-- **Save/Load**: Persistent storage of annotated images
+- **Categorized Links**: Organized by manuals, parts, service, and information
+- **Visual Previews**: Icon-based previews for each link category
+- **Context Notes**: Add personal notes and context for each link
+- **Direct Access**: One-click navigation to external resources
+- **Responsive Grid**: Clean card-based layout for easy browsing
 
-### 💾 Data Management
+### 🖼️ Advanced Image Viewer
 
-- **Local Storage**: Automatic saving of all data
-- **Export/Import**: JSON-based backup and restore functionality
-- **Real-time Stats**: Track completion progress across all sections
+- **High-Resolution Support**: View detailed technical diagrams
+- **Zoom Controls**: Scale from 25% to 400% for precision
+- **Rotation**: 90-degree rotation increments
+- **Fullscreen Mode**: Immersive viewing experience
+- **Navigation**: Keyboard and button navigation between resources
 
 ## Getting Started
 
@@ -57,183 +57,77 @@ The application will be available at `http://localhost:5173`
 
 ## Usage Guide
 
-### Adding New Sections
+### Resource Viewer
 
-1. Click "New Section" in the header
-2. Edit the section title and choose an icon
-3. Add procedures to the section
+1. **Browse Resources**: Use the filter buttons to view images, PDFs, or all resources
+2. **Grid View**: Click the grid view button for an overview of all resources
+3. **Single View**: Click any resource to view it in detail
+4. **Navigation**: Use arrow keys or navigation buttons to browse
+5. **Controls**:
+   - Zoom in/out for detailed examination
+   - Rotate images for different perspectives
+   - Download resources for offline use
+   - Toggle fullscreen for immersive viewing
 
-### Creating Maintenance Procedures
+### External Links
 
-1. Click "Add Procedure" in any section
-2. Fill in the procedure details:
-   - Title and description
-   - Difficulty level (Easy/Intermediate/Advanced)
-   - Estimated time
-   - Step-by-step instructions
-   - Required tools
-   - Safety warnings
+1. **Browse Categories**: Filter links by type (manuals, parts, service, info)
+2. **Visit Sites**: Click "Visit Site" to open external resources
+3. **Add Context**: Each link includes notes and descriptions
+4. **Quick Access**: All important Surron resources in one place
 
-### Interactive Image Annotations
+## Resource Categories
 
-1. In the procedure editor, use the image annotator
-2. Upload an image via drag & drop or click
-3. Use the toolbar to:
-   - **Select**: Move and resize annotations
-   - **Draw**: Freehand drawing with mouse/touch
-   - **Rectangle**: Add rectangular highlights
-   - **Circle**: Add circular highlights
-   - **Text**: Add text annotations
-4. Use action buttons to:
-   - Zoom in/out for precision
-   - Delete selected annotations
-   - Clear all annotations
-   - Save the annotated image
+### Technical Diagrams
 
-### Data Management
+- Body assembly components
+- Battery and motor assemblies
+- Wheel and suspension systems
+- Electronics and lighting
+- Brake and drive systems
 
-- **Auto-save**: All changes are automatically saved to local storage
-- **Export**: Download your manual as a JSON file
-- **Import**: Upload a previously exported JSON file
-- **Backup**: Regular exports recommended for data safety
+### Service Documents
 
-## Recommended Libraries for Enhancement
+- Official Surron service manual
+- Light Bee parts manual
+- Front wheel disassembly guide
 
-### For Advanced Image Interactions
+### External Resources
 
-```bash
-# Alternative to Fabric.js - Great for complex 2D graphics
-npm install konva react-konva
-
-# For deep zoom images (like technical diagrams)
-npm install openseadragon
-
-# React-specific image annotation
-npm install react-image-annotate
-
-# For image editing features
-npm install react-image-crop
-```
-
-### For Enhanced UI Components
-
-```bash
-# Advanced drag-and-drop
-npm install @dnd-kit/core @dnd-kit/sortable
-
-# Rich text editor for descriptions
-npm install @tiptap/react @tiptap/starter-kit
-
-# Advanced form components
-npm install react-hook-form
-
-# Toast notifications
-npm install react-hot-toast
-
-# Modal dialogs
-npm install react-modal
-```
-
-### For 3D Models and AR
-
-```bash
-# 3D model viewer for bike parts
-npm install @react-three/fiber @react-three/drei three
-
-# AR features for maintenance guidance
-npm install @ar-js-org/ar.js
-
-# QR code generation for part identification
-npm install qrcode.js
-```
-
-### For Advanced Features
-
-```bash
-# PDF generation for manual export
-npm install jspdf html2canvas
-
-# Barcode/QR scanning
-npm install quagga
-
-# Voice commands
-npm install react-speech-recognition
-
-# Offline support
-npm install workbox-webpack-plugin
-```
-
-## Example Enhancements
-
-### 1. 3D Interactive Models
-
-```jsx
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
-
-function BikeModel() {
-  const { scene } = useGLTF('/models/surron-lightbee.glb');
-  return <primitive object={scene} />;
-}
-
-function InteractiveBikeViewer() {
-  return (
-    <Canvas>
-      <OrbitControls />
-      <BikeModel />
-    </Canvas>
-  );
-}
-```
-
-### 2. Konva.js Alternative Implementation
-
-```jsx
-import { Stage, Layer, Image, Circle, Text } from 'react-konva';
-
-function KonvaAnnotator() {
-  return (
-    <Stage width={800} height={600}>
-      <Layer>
-        <Image image={imageElement} />
-        <Circle x={100} y={100} radius={50} stroke="cyan" />
-        <Text text="Brake caliper" x={50} y={50} fill="cyan" />
-      </Layer>
-    </Stage>
-  );
-}
-```
-
-### 3. AR Integration Example
-
-```jsx
-import { ARCanvas } from '@ar-js-org/ar.js';
-
-function ARMaintenanceGuide() {
-  return (
-    <ARCanvas onARReady={() => console.log('AR Ready')} markerUrl="/markers/surron-marker.patt">
-      <div className="ar-overlay">
-        <p>Point camera at bike part for instructions</p>
-      </div>
-    </ARCanvas>
-  );
-}
-```
+- Official Surron documentation
+- Parts catalogs and ordering
+- Service center locator
+- Community forums and support
+- Technical specifications
+- Warranty information
 
 ## File Structure
 
 ```
 src/
 ├── components/
-│   ├── InteractiveImageAnnotator.jsx  # Main annotation component
-│   └── MaintenanceManual.jsx         # Main manual interface
-├── App.jsx                           # Root component
-├── App.css                          # Cyberpunk styling
-├── index.css                        # Base styles
-└── main.jsx                         # Entry point
+│   ├── ResourceViewer.tsx      # Main resource viewer component
+│   └── WebsiteLinks.tsx        # External links hub
+├── App.tsx                     # Root component
+├── App.css                     # Cyberpunk styling
+├── index.css                   # Base styles
+└── main.tsx                    # Entry point
 ```
 
 ## Customization
+
+### Adding New Resources
+
+1. **Images**: Place new images in the `public/` directory
+2. **PDFs**: Add PDF files to the `public/` directory
+3. **Update Resource List**: Add new resources to the `resources` array in `ResourceViewer.tsx`
+
+### Adding External Links
+
+1. **Edit WebsiteLinks.tsx**: Add new links to the `websiteLinks` array
+2. **Categories**: Choose from 'manual', 'parts', 'service', 'info', or 'other'
+3. **Icons**: Select appropriate Lucide React icons
+4. **Notes**: Add context and personal notes for each link
 
 ### Color Scheme
 
@@ -241,70 +135,47 @@ Edit the CSS variables in `App.css`:
 
 ```css
 :root {
-  --cyber-bg: #0a0a0a; /* Background */
-  --cyber-primary: #00ffff; /* Cyan accent */
-  --cyber-secondary: #ff00ff; /* Magenta accent */
-  --cyber-accent: #00ff00; /* Green accent */
-  --cyber-warning: #ffff00; /* Yellow warning */
-  --cyber-danger: #ff0040; /* Red danger */
+  --industrial-bg: #1a1d23; /* Background */
+  --industrial-primary: #4a90e2; /* Blue accent */
+  --industrial-accent: #f5a623; /* Orange accent */
+  --industrial-warning: #f5a623; /* Yellow warning */
+  --industrial-danger: #d0021b; /* Red danger */
 }
 ```
 
-### Adding New Icons
+## Technical Details
 
-The app uses Lucide React icons. Add new icons:
+### Built With
 
-```jsx
-import { Wrench, Zap, Settings, AlertTriangle } from 'lucide-react';
-```
+- **React 18**: Modern React with hooks and functional components
+- **TypeScript**: Type-safe development
+- **Vite**: Fast development and build tooling
+- **Lucide React**: Beautiful, customizable icons
+- **CSS Grid & Flexbox**: Responsive layouts
 
-## Contributing
+### Performance Features
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## Troubleshooting
-
-### Image Upload Issues
-
-- Ensure images are in supported formats: JPG, PNG, GIF, WebP
-- Check file size limits (browser dependent)
-- Verify CORS settings if loading external images
-
-### Canvas Performance
-
-- Large images may slow down annotation
-- Consider image compression for better performance
-- Use zoom controls for detailed work
-
-### Local Storage Limits
-
-- Browser storage ~5-10MB typical limit
-- Export data regularly as backup
-- Consider IndexedDB for larger datasets
+- **Lazy Loading**: Images load on demand
+- **Optimized Rendering**: Efficient React component structure
+- **Responsive Design**: Works on desktop and mobile devices
+- **Keyboard Navigation**: Full keyboard support for accessibility
 
 ## Future Enhancements
 
-- [ ] Multi-user collaboration
-- [ ] Cloud sync capabilities
-- [ ] Video annotation support
-- [ ] QR code integration for parts
-- [ ] Mobile app companion
-- [ ] Voice-guided instructions
-- [ ] Augmented reality overlays
-- [ ] Integration with parts ordering systems
+### Potential Additions
 
-## License
+- **Search Functionality**: Find resources by title or content
+- **Favorites System**: Mark frequently used resources
+- **Custom Categories**: User-defined resource organization
+- **Offline Support**: Cache resources for offline viewing
+- **Mobile App**: React Native version for mobile devices
+- **3D Models**: Interactive 3D bike component viewers
+- **AR Integration**: Augmented reality maintenance guides
 
-MIT License - feel free to customize for your needs!
+### Advanced Features
 
-## Support
-
-For issues and feature requests, please create an issue in the repository.
-
----
-
-**Built with ❤️ for the Surron community**
+- **User Accounts**: Personalized resource collections
+- **Cloud Sync**: Share resources across devices
+- **Collaboration**: Share annotated resources with others
+- **Analytics**: Track most-used resources and links
+- **Notifications**: Updates for new resources or manuals
